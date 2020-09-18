@@ -71,9 +71,9 @@ console.log(defaultTrip.toString());
 //Héritage 
 
 class FreeTrip extends Trip {
-    constructor(id, name, imageUrl, price = 0) {
+    constructor(id, name, imageUrl, price) {
         super(id, name, imageUrl);
-        this.price = price;
+        this.price = price || 0;
     }
     toString() {
         return 'Free' + super.toString();
@@ -154,7 +154,7 @@ tripService.findByName("Paris")
 
 
  tripService.findByName("Toulouse")
-    .then(value => console.log("Find by name" + value))
+    .then(value => console.log(`Trip found :${value}`))
     .catch(err => console.log("Find by name :" + err))
 
 tripService.findByName("Rio de Janeiro")
